@@ -1,4 +1,4 @@
-# Self Signed Certificate Using OpenSSL
+# OpenSSL
 
 This doc contains instructions to set up TLS locally with OpenSSL.
 
@@ -42,7 +42,7 @@ Move root certificate to Keychain Access
 openssl rsa -in mydomain.com.key -text > key.pem
 ```
 
-##### Convert a DER file (.crt .cer .der) to PEM
+##### Convert a DER file (.crt .cer .der) to PEM (not working but can manually copy)
 ```
 openssl x509 -inform der -in mydomain.com.crt -out cert.pem
 ```
@@ -57,11 +57,6 @@ openssl x509 -outform der -in cert.pem -out certificate.der
 openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key
 ```
 
-##### Generate self signed pem
-```
-openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
-```
-
 ##### Check a certificate
 ```
 openssl x509 -in certificate.crt -text
@@ -70,4 +65,9 @@ openssl x509 -in certificate.crt -text
 ##### Check a certificate signing request
 ```
 openssl req -verify -in CSR.csr -text
+```
+
+##### Generate self signed pem
+```
+openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 ```
