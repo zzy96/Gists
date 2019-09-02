@@ -25,7 +25,7 @@ curl -X POST -d '{"json": "message"}' -H 'Content-Type: application/json' <url>
 
 `-X` sets the request method.
 
-##### Authentication
+### Authentication
 
 
 With user id & password
